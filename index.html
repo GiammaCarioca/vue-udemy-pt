@@ -1,28 +1,19 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-	<p v-once>{{ cumprimentar() }}</p>
-	<p>{{ titulo }}</p>
-	<a :href="link">Official Website</a>
-	<p>Tudo bem com você, {{ nome }}?</p>
-	<hr />
-	<p>{{ linkHtml }}</p>
-	<p v-html="linkHtml"></p>
+	<p>{{ contador }}</p>
+	<button v-on:click="somar">Somar 1</button>
 </div>
 
 <script>
 	new Vue({
 		el: '#app',
 		data: {
-			titulo: 'Bem-vindo ao Universo Vue.js!',
-			nome: 'Giamma',
-			link: 'https://vuejs.org/',
-			linkHtml: '<a href="http://google.com">Google</a>'
+			contador: 0
 		},
 		methods: {
-			cumprimentar() {
-				this.nome = 'Thiago'
-				return `Oi, ${this.nome}!`
+			somar() {
+				this.contador++
 			}
 		}
 	})
