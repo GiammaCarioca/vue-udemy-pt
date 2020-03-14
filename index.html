@@ -5,6 +5,9 @@
 	<p>{{ titulo }}</p>
 	<a :href="link">Official Website</a>
 	<p>Tudo bem com você, {{ nome }}?</p>
+	<hr />
+	<p>{{ linkHtml }}</p>
+	<p v-html="linkHtml"></p>
 </div>
 
 <script>
@@ -13,7 +16,8 @@
 		data: {
 			titulo: 'Bem-vindo ao Universo Vue.js!',
 			nome: 'Giamma',
-			link: 'https://vuejs.org/'
+			link: 'https://vuejs.org/',
+			linkHtml: '<a href="http://google.com">Google</a>'
 		},
 		methods: {
 			cumprimentar() {
