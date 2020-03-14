@@ -1,7 +1,7 @@
 <script src="https://unpkg.com/vue"></script>
 
 <style>
-	#app {
+	.caixas {
 		display: flex;
 		justify-content: space-around;
 	}
@@ -26,16 +26,21 @@
 </style>
 
 <div id="app">
-	<div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
-	<div class="demo"></div>
-	<div class="demo"></div>
+	<div class="caixas">
+		<div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
+		<div class="demo"></div>
+		<div class="demo" :class="classeCSS"></div>
+	</div>
+	<hr />
+	<input type="text" v-model="classeCSS" />
 </div>
 
 <script>
 	new Vue({
 		el: '#app',
 		data: {
-			aplicarC1: false
+			aplicarC1: false,
+			classeCSS: 'c1'
 		},
 		computed: {
 			estilo1() {
