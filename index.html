@@ -23,13 +23,17 @@
 	.c3 {
 		background-color: blue;
 	}
+
+	.girar {
+		transform: rotate(45deg);
+	}
 </style>
 
 <div id="app">
 	<div class="caixas">
 		<div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
 		<div class="demo"></div>
-		<div class="demo" :class="classeCSS"></div>
+		<div class="demo" :class="[classeCSS, 'girar']"></div>
 	</div>
 	<hr />
 	<input type="text" v-model="classeCSS" />
