@@ -10,6 +10,12 @@
 		<h1>{{ cor }}</h1>
 		<p>{{ idx }}</p>
 	</template>
+	<hr />
+	<ul>
+		<li v-for="pessoa in pessoas">
+			{{ pessoa.nome }}
+		</li>
+	</ul>
 </div>
 
 <script>
