@@ -1,16 +1,24 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
+	<p>Oi, {{ cumprimentar() }}!</p>
 	<h1>{{ titulo }}</h1>
-	<a v-bind:href="link">Official Website</a>
+	<a :href="link">Official Website</a>
 </div>
 
 <script>
 	new Vue({
 		el: '#app',
 		data: {
-			titulo: 'Usando VueJS 2!',
+			titulo: 'Bem-vindo ao Universo Vue.js!',
+			nome: 'Giamma',
 			link: 'https://vuejs.org/'
+		},
+		methods: {
+			cumprimentar() {
+				console.log(this)
+				return this.nome
+			}
 		}
 	})
 </script>
