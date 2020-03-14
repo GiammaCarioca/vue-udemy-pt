@@ -1,9 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-	<p>Oi, {{ cumprimentar() }}!</p>
-	<h1>{{ titulo }}</h1>
+	<p v-once>{{ cumprimentar() }}</p>
+	<p>{{ titulo }}</p>
 	<a :href="link">Official Website</a>
+	<p>Tudo bem com você, {{ nome }}?</p>
 </div>
 
 <script>
@@ -16,8 +17,8 @@
 		},
 		methods: {
 			cumprimentar() {
-				console.log(this)
-				return this.nome
+				this.nome = 'Thiago'
+				return `Oi, ${this.nome}!`
 			}
 		}
 	})
