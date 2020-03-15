@@ -2,42 +2,29 @@
 <script src="https://unpkg.com/vue"></script>
 
 <div id="app">
-	<ul>
-		<li v-for="(cor, idx) in cores" :key="cor">{{ idx + 1 }}) {{ cor }}</li>
-	</ul>
-	<button @click="cores.push('branco')">Adicionar</button>
-	<hr />
-	<template v-for="(cor, idx) in cores">
-		<h1>{{ cor }}</h1>
-		<p>{{ idx }}</p>
-	</template>
-	<hr />
-	<ul>
-		<li v-for="pessoa in pessoas">
-			<div v-for="(valor, chave, índice) in pessoa">
-				{{ chave }} = {{ valor }} ({{ índice + 1 }})
-			</div>
-		</li>
-	</ul>
-	<hr />
-	<div v-for="n in 10">{{ n }}</div>
+	<h1 ref="aulaRef">{{ aula }}</h1>
+	<h2>{{ modulo }}</h2>
+	<button @click="alterarAula">Alterar Aula</button>
+	<button @click="alterarModulo">Alterar Módulo</button>
 </div>
 
 <script>
-	new Vue({
+	const vm = new Vue({
 		el: '#app',
 		data: {
-			cores: ['vermelho', 'verde', 'amarelo', 'azul'],
-			pessoas: [
-				{ nome: 'Ana', idade: 26, peso: 59 },
-				{ nome: 'Guilherme', idade: 22, peso: 89 }
-			]
+			aula: 'Aula: Usando Refs',
+			modulo: 'Módulo: Instância Vue'
+		},
+		methods: {
+			alterarAula() {
+				this.aula += '#'
+			},
+			alterarModulo() {
+				this.modulo += '#'
+				console.log(this.$refs.aulaRef.innerText)
+			}
 		}
 	})
-</script>
 
-<style>
-	ul {
-		list-style: none;
-	}
-</style>
+	vm.$refs.aulaRef.innerText = 'Alterado diretamente :('
+</script>
