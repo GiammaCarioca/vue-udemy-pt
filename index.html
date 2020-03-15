@@ -2,38 +2,40 @@
 <script src="https://unpkg.com/vue"></script>
 
 <div id="app">
-	<comp></comp>
-	<comp></comp>
-	<comp></comp>
+	<h1>{{ titulo }}</h1>
+	<button @click="titulo += '#'">Alterar Título</button>
+	<button @click="$destroy()">Destruir</button>
 </div>
 
 <script>
-	Vue.component('comp', {
-		template: `
-			<div>
-				<h1>{{ aula }}</h1>
-				<h2>{{ modulo }}</h2>
-				<button @click="alterarAula">Alterar Aula</button>
-				<button @click="alterarModulo">Alterar Módulo</button>
-			</div>
-		`,
-		data: function() {
-			return {
-				aula: 'Aula: Usando Componentes',
-				modulo: 'Módulo: Instância Vue'
-			}
+	new Vue({
+		el: '#app',
+		data: {
+			titulo: 'Ciclo de Vida'
 		},
-		methods: {
-			alterarAula() {
-				this.aula += '#'
-			},
-			alterarModulo() {
-				this.modulo += '#'
-			}
+		beforeCreate() {
+			console.log('Antes de Criar')
+		},
+		created() {
+			console.log('Criado')
+		},
+		beforeMount() {
+			console.log('Antes de Montar (DOM)')
+		},
+		mounted() {
+			console.log('DOM Montada')
+		},
+		beforeUpdate() {
+			console.log('Antes de Atualizar')
+		},
+		updated() {
+			console.log('Atualizado')
+		},
+		beforeDestroy() {
+			console.log('Antes de Destruir')
+		},
+		destroyed() {
+			console.log('Destruído')
 		}
-	})
-
-	const vm = new Vue({
-		el: '#app'
 	})
 </script>
