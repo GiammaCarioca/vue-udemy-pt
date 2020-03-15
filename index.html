@@ -1,11 +1,14 @@
 <meta charset="UTF-8" />
 <script src="https://unpkg.com/vue"></script>
 
-<div id="app"></div>
+<div id="app">
+	<comp></comp>
+	<comp></comp>
+	<comp></comp>
+</div>
 
 <script>
-	const vm = new Vue({
-		// el: '#app',
+	Vue.component('comp', {
 		template: `
 			<div>
 				<h1>{{ aula }}</h1>
@@ -14,9 +17,11 @@
 				<button @click="alterarModulo">Alterar Módulo</button>
 			</div>
 		`,
-		data: {
-			aula: 'Aula: Montando Instância Vue',
-			modulo: 'Módulo: Instância Vue'
+		data: function() {
+			return {
+				aula: 'Aula: Usando Componentes',
+				modulo: 'Módulo: Instância Vue'
+			}
 		},
 		methods: {
 			alterarAula() {
@@ -28,7 +33,7 @@
 		}
 	})
 
-	vm.$mount('#app')
-	// vm.$mount()
-	// document.querySelector('#app').appendChild(vm.$el)
+	const vm = new Vue({
+		el: '#app'
+	})
 </script>
