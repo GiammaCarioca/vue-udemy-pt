@@ -6,6 +6,7 @@
 			Nome do usuário: <strong>{{ inverterNome() }}</strong>
 		</p>
 		<button @click="reiniciarNome">Reiniciar Nome</button>
+		<button @click="reiniciarFn()">Reiniciar Nome (Callback)</button>
 	</div>
 </template>
 
@@ -21,7 +22,8 @@ export default {
 			// 		.fill(0)
 			// 		.join(',')
 			// }
-		}
+		},
+		reiniciarFn: Function
 	},
 	methods: {
 		inverterNome() {
@@ -32,7 +34,7 @@ export default {
 		},
 		reiniciarNome() {
 			this.nome = 'Pedro'
-			this.$emit('nomeMudou', { nome: this.nome })
+			this.$emit('nomeMudou', this.nome)
 		}
 	}
 }
