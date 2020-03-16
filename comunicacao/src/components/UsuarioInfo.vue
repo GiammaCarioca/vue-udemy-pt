@@ -32,7 +32,7 @@ export default {
 		},
 		reiniciarNome() {
 			this.nome = 'Pedro'
-			this.$emit('nomeMudou', this.nome)
+			this.$emit('nomeMudou', { nome: this.nome })
 		}
 	}
 }
